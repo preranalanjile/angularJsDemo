@@ -1,0 +1,4 @@
+angularJsDemo
+=============
+
+Rails with angularJs
