@@ -1,0 +1,37 @@
+<h2>Author: {{author.name | capitalize}}</h2>
+<hr/>
+
+<div ng-controller="BooksController">
+
+
+    <div ng-show="books.$resolved && books.length == 0">
+        <h4>There's nothing here...Please add books</h4>
+    </div>
+
+    <div ng-repeat="book in books">
+        <div style="background-color: #F5F5F5; padding:5px 5px; margin-bottom:5px;overflow:hidden;display:block;">
+            <div style="float:left;">
+                <h4>
+                    <a href="#/author/{{author.id}}/book/{{book.id}}/edit">{{book.name | capitalize}}</a>
+                    (<span style="font-size: 12px;">
+                        {{book.created_at | date:'medium'}}
+                    </span>)
+                </h4>
+                {{book.description}}
+            </div>
+            <div style="float:right;"><a ng-click="destroy($index)" href=""><i class="icon-trash"></i></a></div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <form ng-submit="save()">
+        <input type="text" ng-model="name" style="width: 100%;" placeholder="Book Name"/>
+        <div class="alert alert-error ng-scope ng-binding" ng-repeat="error in errors.name" class="alert alert-error"><strong>Name</strong> {{error}}</div>
+
+        <textarea ng-model="description" rows="4" style="width: 100%;" placeholder="Book Description"></textarea>
+        <div class="alert alert-error ng-scope ng-binding" ng-repeat="error in errors.description" class="alert alert-error"><strong>Description</strong> {{error}}</div>
+
+        <button type="submit" class="btn btn-primary btn-large">Add</button>
+    </form>
+</div>

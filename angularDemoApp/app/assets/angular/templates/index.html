@@ -1,0 +1,30 @@
+<div style="clear:both;">
+    <h2 class="ng-scope" style="float:left;">Authors</h2>
+
+    <a href="#/author/new" class="btn btn-primary btn-large" style="float:right; margin-right:30px;">New</a>
+               
+</div>
+
+<div class="row ng-scope">
+
+    <div class="span9" style="clear:both;">
+
+        <div ng-show="authors.$resolved && authors.length == 0">
+            <hr/>
+            <h4>There's nothing here...</h4>
+
+            <p>Use the 'New' button to create a new author!</p>
+        </div>
+
+        <table class="table table-hover">
+            <tr class="ng-scope" ng-repeat="author in authors">
+                <td width="100%"><a href="#/author/{{author.id}}">{{author.name}}</a></td>
+
+                <td><a ng-click="destroy($index)" href=""><i class="icon-trash"></i></a></td>
+            </tr>
+        </table>
+
+    </div>
+
+    
+</div>

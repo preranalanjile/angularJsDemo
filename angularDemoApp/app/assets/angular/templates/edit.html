@@ -1,0 +1,16 @@
+<h2>Author: {{author.name | capitalize}}</h2>
+<hr/>
+
+<h4>Edit Book</h4>
+
+<div ng-controller="BookUpdateController">
+	<form>
+        <input type="text" name="input" ng-model="book.name" required style="width: 100%;" placeholder="Book Name" />
+        <div class="alert alert-error ng-scope ng-binding" ng-repeat="error in errors.name" class="alert alert-error"><strong>Name</strong> {{error}}</div>
+
+        <textarea ng-model="book.description" rows="4" style="width: 100%;" placeholder="Book Description" />
+        <div class="alert alert-error ng-scope ng-binding" ng-repeat="error in errors.description" class="alert alert-error"><strong>Description</strong> {{error}}</div>
+
+        <button ng-click="update(book)" type="submit" class="btn btn-primary btn-large">Update</button>
+	</form>
+</div>

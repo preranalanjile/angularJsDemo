@@ -1,0 +1,21 @@
+// 'use strict';
+/*
+    This is our main launch point from Angular. We'll put anything to do with the
+    general well being of our app in this file. For now it'll basically just contain
+    the routing information.
+
+    Our module will be called 'app'.
+
+    Note: We need the empty array after the 'app' declaration, without it, you
+    get an error complaining about 'No module <MODULE>'.
+ */
+angular.module('app', ['ngResource', 'app.loading'])
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/', {controller: 'AuthorIndexController', templateUrl: '<%= asset_path('templates/index.html') %>'})
+            .when('/author/new', {controller: 'AuthorCreateController', templateUrl: '<%= asset_path('templates/new.html') %>'})
+            .when('/author/:id', {controller: 'AuthorShowController', templateUrl: '<%= asset_path('templates/show.html') %>'})
+            .when('/author/:author_id/book/:id/edit', {controller: 'BookUpdateController', templateUrl: '<%= asset_path('templates/edit.html') %>'})
+            .otherwise({redirectTo: '/'});
+}]);
+

@@ -1,0 +1,19 @@
+<h2>New Author</h2>
+
+<form ng-submit="save()">
+
+    <div>
+        <label>Author Name:</label>
+
+        <div>
+            <input type="text" ng-model="author.name"/>
+            <div class="alert alert-error ng-scope ng-binding" ng-repeat="error in errors.name" class="alert alert-error"><strong>Name</strong> {{error}}</div>
+
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" class="btn btn-primary btn-large" value="Create"/>
+        </div>
+    </div>
+</form>
